@@ -1,14 +1,20 @@
 import requests, csv
-    
+
+#-------constants------
+GET_BY_NAME = 1
+GET_BY_ID = 2
+GET_STORES = 3    
+#----------------------    
+
 def get_data(name_id_store, x):
-    if x == 1:
+    if x == GET_BY_NAME:
         response = requests.get(URL + "games?title=" + name_id_store)
         xdata = response.json()
         if xdata == []:
             return None     
         else:
             return  xdata
-    elif x == 2:
+    elif x == GET_BY_ID:
         response = requests.get(URL + "games?id=" + game_id)
         xdata = response.json()
         return xdata
@@ -65,15 +71,15 @@ def save_offers(offer_sites_with_names):
 URL = "https://www.cheapshark.com/api/1.0/"
 while True:
     name = input("What game are you looking for? ")
-    data = get_data(name, 1)
+    data = get_data(name, GET_BY_NAME)
     if data == None:
         print("No game found with that name, please check the spelling")
     else:
         break
 game_id = obtain_ID(data)
-deal_data = get_data(game_id, 2)
+deal_data = get_data(game_id, GET_BY_ID)
 offer_sites_with_ID = storesID_and_prices(deal_data)
-stores = get_data(game_id, 3)
+stores = get_data(game_id, GET_STORES)
 offer_sites_with_names = search_store_link(offer_sites_with_ID, stores)
 return_information(offer_sites_with_names)
 save_offers(offer_sites_with_names)
