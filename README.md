@@ -1,6 +1,7 @@
 # Game Price Checker 🎮💸
 
-A Python tool that checks the best prices for video games using the [CheapShark API](https://apidocs.cheapshark.com/). Just enter the game name, and it will return all available deals from various online stores. You can also save the offers in a CSV file.
+This is my first attempt at working with APIs.
+It's a small Python project that checks for the best prices on video games using the CheapShark API. Just enter a game's name, and it will show all the available deals from different online stores. You can also choose to save the offers in a CSV file.
 
 ## Features
 
@@ -8,7 +9,3 @@ A Python tool that checks the best prices for video games using the [CheapShark 
 - See prices and links to each store
 - Option to save all offers in a CSV file
 - Automatically shows the game name on output and in the CSV
-
-## Upcoming Features
-
-- 🔔 Email alerts when a game drops below a desired price
